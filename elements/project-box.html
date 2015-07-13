@@ -48,7 +48,7 @@
 
     <template>
 
-        <div id="outer_container" on-tap="handleTap">
+        <div id="outer_container" on-tap="handleTap" on-mouseover="handleHover">
             <div id="box_container" class="layout vertical">
 
                 <div id="image">
@@ -102,6 +102,10 @@
 
         setImagePath: function() {
             this.imagePath = "/images/" + this.boxImage;
+        },
+
+        handleHover: function() {
+            console.log("all hover crew");
         },
 
         handleTap: function() {
