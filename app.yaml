@@ -1,0 +1,25 @@
+application: section14
+version: v1
+api_version: 1
+runtime: python27
+threadsafe: yes
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: /
+- url: /elements.html
+  static_files: elements.html
+  upload: /
+- url: /bower_components
+  static_dir: bower_components
+- url: /general
+  static_dir: general
+- url: /js
+  static_dir: js
+- url: /styles
+  static_dir: styles
+- url: /elements
+  static_dir: elements
+- url: /images
+  static_dir: images

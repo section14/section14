@@ -1,0 +1,115 @@
+<dom-module id="project-box">
+
+    <style>
+
+    :host {
+        float: left;
+        width: 244px;
+        height: 244px;
+        min-width: 244px;
+        min-height: 244px;
+        margin: 12px 0px 12px 0px;
+        background-color: var(--box-background-color, gray);
+    }
+
+    #image {
+        height: 0px;
+        postition: relative;
+        top: 0;
+        z-index: 1;
+    }
+
+    #line1 {
+        color: var(--text-color-1, white);
+    }
+
+    #line2 {
+        color: var(--text-color-2, white);
+    }
+
+    #outer_container {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    #box_container {
+        height: 100%;
+    }
+
+    #text_container {
+        height: 100%;
+        position:relative;
+        top: 0;
+        z-index: 2;
+    }
+
+    </style>
+
+    <template>
+
+        <div id="outer_container" on-tap="handleTap">
+            <div id="box_container" class="layout vertical">
+
+                <div id="image">
+                    <iron-image class="image" preload src="{{imagePath}}"></iron-image>
+                </div>
+
+                <div id="text_container" class="layout vertical center-justified center">
+                    <div id="line1">
+                        <span>[[boxText1]]</span>
+                    </div>
+
+                    <div id="line2">
+                        <span>[[boxText2]]</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+    <script>
+
+    Polymer({
+
+        is: "project-box",
+
+        properties: {
+
+            boxImage: {
+                type: String
+            },
+
+            boxText1: {
+                type: String
+            },
+
+            boxText2: {
+                type: String
+            },
+
+            urlDest: {
+                type: String
+            }
+
+        },
+
+        ready: function() {
+            this.setImagePath();
+        },
+
+        setImagePath: function() {
+            this.imagePath = "/images/" + this.boxImage;
+        },
+
+        handleTap: function() {
+            console.log("tapped");
+        }
+
+    });
+
+    </script>
+
+</dom-module>

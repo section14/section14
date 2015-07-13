@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section Fourteen</title>
+
+    <meta charset="utf-8">
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/styles.css">
+    <!-- <link rel="stylesheet" href="/styles/bootstrap.min.css"> -->
+    <!--STYLES END-->
+    <!-- <link rel="stylesheet" href="/bower_components/paper-drawer-panel/paper-drawer-panel.css"> -->
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    <!-- polymer elements -->
+    <link rel="import" href="elements.html">
+
+    <!-- my elements -->
+    <link rel="import" href="elements/project-box.html">
+
+    <!-- router -->
+    <link rel="import" href="/general/routing.html">
+
+    <style is="custom-style">
+
+    .spectre {
+        --box-background-color: #ff0000;
+        --text-color-1: #cccccc;
+        --text-color-2: #fbd254;
+    }
+
+    </style>
+
+  </head>
+
+  <body class="fullbleed layout vertical center">
+
+    <span id="browser-sync-binding"></span>
+    <template is="dom-bind" id="app">
+
+    <div class="layout horizontal wrap home_boxes">
+
+    <project-box
+    class="spectre"
+    box-image="spectre_home_up.png"
+    box-text1="This is box text 1"
+    box-text2="This is box text 2"
+    url-dest="/spectre">
+    </project-box>
+
+    </div>
+
+    </template>
+
+    <!--SCRIPTS-->
+    <script src="/js/app.js"></script>
+    <script src="/js/routing.js"></script>
+    <!--SCRIPTS END-->
+
+  </body>
+
+</html>
