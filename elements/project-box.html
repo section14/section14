@@ -76,7 +76,21 @@
 
         is: "project-box",
 
+        behaviors: [
+            Polymer.NeonAnimationRunnerBehavior
+        ],
+
         properties: {
+
+            animationConfig: {
+                value: function() {
+                    return {
+                        name: "fade-out-animation",
+                        node: this.$.image
+                    }
+                }
+
+            },
 
             boxImage: {
                 type: String
@@ -106,9 +120,11 @@
 
         handleHover: function() {
             console.log("all hover crew");
+
         },
 
         handleTap: function() {
+            this.playAnimation();
             console.log("tapped");
         }
 
