@@ -48,7 +48,7 @@
 
     <template>
 
-        <div id="outer_container" on-tap="handleTap" on-mouseover="handleHover">
+        <div id="outer_container" on-tap="handleTap" on-mouseover="enterHover" on-mouseout="leaveHover">
             <div id="box_container" class="layout vertical">
 
                 <div id="image">
@@ -77,7 +77,7 @@
         is: "project-box",
 
         behaviors: [
-            Polymer.NeonAnimationRunnerBehavior
+            Polymer.NeonAnimationRunnerBehavior,
         ],
 
         properties: {
@@ -85,8 +85,16 @@
             animationConfig: {
                 value: function() {
                     return {
-                        name: "fade-out-animation",
-                        node: this.$.image
+                        "imageFadeOut": {
+                            name: "fade-out-animation",
+                            node: this.$.image,
+                            complete: "imageFadeOutComplete"
+                        },
+                        "imageFadeIn": {
+                            name: "fade-in-animation",
+                            node: this.$.text_container
+                        }
+
                     }
                 }
 
@@ -110,23 +118,43 @@
 
         },
 
+        listeners: {
+          // this event is fired when the animation finishes
+          "neon-animation-finish": "imageFadeOutComplete"
+        },
+
         ready: function() {
             this.setImagePath();
+
+            //hide text initially
+            this.$.text_container.style.display = "none";
         },
 
         setImagePath: function() {
             this.imagePath = "/images/" + this.boxImage;
         },
 
-        handleHover: function() {
-            console.log("all hover crew");
+        imageFadeOutComplete: function() {
 
+            //this.$.image.style.display = "none";
+        },
+
+        enterHover: function() {
+            this.playAnimation("imageFadeOut");
+        },
+
+        leaveHover: function() {
+            this.playAnimation("imageFadeIn");
+            this.$.text_container.style.display = "initial";
+        },
+
+        crapTest: function() {
+            console.log("I hate you");
         },
 
         handleTap: function() {
-            this.playAnimation();
-            console.log("tapped");
-        }
+
+        },
 
     });
 
