@@ -4,13 +4,7 @@ window.addEventListener("WebComponentsReady", function() {
 
     page('/', function () {
         app.route = "home";
-        app.pageContent = "/app/general/home.html";
-        console.log("home crew");
-    });
-
-    page('/admin', function () {
-        app.route = "admin";
-        app.pageContent = "/app/admin/dashboard.html";
+        app.pageContent = "/general/home.html";
     });
 
     /*
@@ -20,10 +14,14 @@ window.addEventListener("WebComponentsReady", function() {
     });
     */
 
+    page('/about', function () {
+        app.route = "about";
+        app.pageContent = "/general/about.html";
+    });
+
     page('/contact', function () {
         app.route = "contact";
-        app.pageContent = "/app/general/contact.html";
-        console.log("contact crew");
+        app.pageContent = "/general/contact.html";
     });
 
     // add #! before urls

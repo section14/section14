@@ -48,7 +48,7 @@
 
     <template>
 
-        <div id="outer_container" on-tap="handleTap" on-mouseover="enterHover" on-mouseout="leaveHover">
+        <div id="outer_container" on-tap="handleTap" on-mouseenter="enterHover" on-mouseleave="leaveHover">
             <div id="box_container" class="layout vertical">
 
                 <div id="image">
@@ -87,13 +87,20 @@
                     return {
                         "imageFadeOut": {
                             name: "fade-out-animation",
-                            node: this.$.image,
-                            complete: "imageFadeOutComplete"
+                            node: this.$.image
                         },
                         "imageFadeIn": {
                             name: "fade-in-animation",
+                            node: this.$.image
+                        },
+                        "textFadeOut": {
+                            name: "fade-out-animation",
                             node: this.$.text_container
-                        }
+                        },
+                        "textFadeIn": {
+                            name: "fade-in-animation",
+                            node: this.$.text_container
+                        },
 
                     }
                 }
@@ -120,11 +127,14 @@
 
         listeners: {
           // this event is fired when the animation finishes
-          "neon-animation-finish": "imageFadeOutComplete"
+          "neon-animation-finish": "handleAnimationComplete"
         },
 
         ready: function() {
             this.setImagePath();
+
+            //store default display value to restore later
+            this.textDisplayStyle = this.$.text_container.style.display;
 
             //hide text initially
             this.$.text_container.style.display = "none";
@@ -134,26 +144,38 @@
             this.imagePath = "/images/" + this.boxImage;
         },
 
+        handleAnimationComplete: function (event, animHandler) {
+            //function to call proper animation handler function
+            switch (animHandler) {
+
+                case "imageFadeOut":
+
+                    break;
+
+                default: null
+
+            }
+        },
+
         imageFadeOutComplete: function() {
 
             //this.$.image.style.display = "none";
         },
 
         enterHover: function() {
-            this.playAnimation("imageFadeOut");
+            this.playAnimation("imageFadeOut", "imageFadeOut");
+            this.playAnimation("textFadeIn", "textFadeIn");
+            this.$.text_container.style.display = this.textDisplayStyle;
         },
 
         leaveHover: function() {
-            this.playAnimation("imageFadeIn");
-            this.$.text_container.style.display = "initial";
-        },
-
-        crapTest: function() {
-            console.log("I hate you");
+            this.playAnimation("imageFadeIn", "imageFadeIn");
+            this.playAnimation("textFadeOut", "textFadeOut");
+            this.$.text_container.style.display = "none";
         },
 
         handleTap: function() {
-
+            page(this.urlDest);
         },
 
     });
