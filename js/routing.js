@@ -7,6 +7,12 @@ window.addEventListener("WebComponentsReady", function() {
         app.pageContent = "/general/home.html";
     });
 
+    page('/project/:id', function (ctx) {
+        app.route = "project";
+        app.pageContent = "/general/project.html";
+        app.projectId = ctx.params.id;
+    });
+
     /*
     page('/users/:name', function (data) {
       app.route = 'user-info';
