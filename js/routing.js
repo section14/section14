@@ -13,13 +13,6 @@ window.addEventListener("WebComponentsReady", function() {
         app.projectId = ctx.params.id;
     });
 
-    /*
-    page('/users/:name', function (data) {
-      app.route = 'user-info';
-      app.params = data.params;
-    });
-    */
-
     page('/about', function () {
         app.route = "about";
         app.pageContent = "/general/about.html";

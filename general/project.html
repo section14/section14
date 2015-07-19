@@ -1,6 +1,9 @@
-<script>
-    console.log(app.projectId);
-</script>
-
 <template>
+    <script>
+        var projectURL = "/projects/" + app.projectId + ".html";
+        var contentElement = document.querySelector("#project_loader");
+        contentElement.setAttribute("file-path", projectURL);
+    </script>
+
+    <content-loader id="project_loader" file-path=""></content-loader>
 </template>

@@ -27,6 +27,10 @@
         color: var(--text-color-2, white);
     }
 
+    #line3 {
+        color: var(--text-color-2, white);
+    }
+
     #outer_container {
         width: 100%;
         height: 100%;
@@ -62,6 +66,10 @@
 
                     <div id="line2">
                         <span>[[boxText2]]</span>
+                    </div>
+
+                    <div id="line3">
+                        <span>[[boxText3]]</span>
                     </div>
                 </div>
 
@@ -119,6 +127,10 @@
                 type: String
             },
 
+            boxText3: {
+                type: String
+            },
+
             urlDest: {
                 type: String
             }
@@ -133,7 +145,12 @@
         ready: function() {
             this.setImagePath();
 
-            //store default display value to restore later
+            //image and text state vars
+            this.imageHidden = false;
+            this.textHidden = true;
+
+            //store default display values to restore later
+            this.imageDisplayStyle = this.$.image.style.display;
             this.textDisplayStyle = this.$.text_container.style.display;
 
             //hide text initially
@@ -149,7 +166,11 @@
             switch (animHandler) {
 
                 case "imageFadeOut":
+                    this.imageFadeOutComplete();
+                    break;
 
+                case "imageFadeIn":
+                    this.imageFadeInComplete();
                     break;
 
                 default: null
@@ -158,8 +179,11 @@
         },
 
         imageFadeOutComplete: function() {
+            this.imageHidden = true;
+        },
 
-            //this.$.image.style.display = "none";
+        imageFadeInComplete: function() {
+            this.imageHidden = false;
         },
 
         enterHover: function() {
@@ -169,7 +193,15 @@
         },
 
         leaveHover: function() {
-            this.playAnimation("imageFadeIn", "imageFadeIn");
+            if (this.imageHidden === true)
+            {
+                this.playAnimation("imageFadeIn", "imageFadeIn");
+            }
+            else
+            {
+                this.cancelAnimation();
+                this.$.image.style.display = this.imageDisplayStyle;
+            }
             this.playAnimation("textFadeOut", "textFadeOut");
             this.$.text_container.style.display = "none";
         },

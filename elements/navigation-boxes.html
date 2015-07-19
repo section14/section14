@@ -1,0 +1,175 @@
+<dom-module id="navigation-boxes">
+
+    <style>
+
+        .spectre {
+            --box-background-color: #2d4643;
+            --text-color-1: #1fc4ff;
+            --text-color-2: #1fffff;
+        }
+
+        .big_fat_d {
+            --box-background-color: #9fd730;
+            --text-color-1: #274f06;
+            --text-color-2: #1d8d1d;
+        }
+
+        .tshirts {
+            --box-background-color: #b5e655;
+            --text-color-1: #576e29;
+            --text-color-2: #ffffff;
+        }
+
+        .arduino {
+            --box-background-color: #fa3c08;
+            --text-color-1: #ffffff;
+            --text-color-2: #601703;
+        }
+
+        .vector {
+            --box-background-color: #7fc6bc;
+            --text-color-1: #4a736d;
+            --text-color-2: #ffffff;
+        }
+
+        .ssr {
+            --box-background-color: #fc7d23;
+            --text-color-1: #62310e;
+            --text-color-2: #fce023;
+        }
+
+        .logos {
+            --box-background-color: #d897e3;
+            --text-color-1: #885f8f;
+            --text-color-2: #1c131d;
+        }
+
+        .spectre_dev {
+            --box-background-color: #fcb923;
+            --text-color-1: #ffffff;
+            --text-color-2: #fc7723;
+        }
+
+        .audio {
+            --box-background-color: #56aaff;
+            --text-color-1: #ffffff;
+            --text-color-2: #1f3d5c;
+        }
+
+        .openframeworks {
+            --box-background-color: #cb2e78;
+            --text-color-1: #ffc0de;
+            --text-color-2: #3e0e25;
+        }
+
+    </style>
+
+    <template>
+
+        <div class="layout horizontal wrap home_boxes">
+
+            <project-box
+            class="spectre"
+            box-image="spectre_home_up.png"
+            box-text1="Spectre Modular"
+            box-text2="Midi Sequencer"
+            box-text3="iPad App"
+            url-dest="/project/spectre">
+            </project-box>
+
+            <project-box
+            class="big_fat_d"
+            box-image="big_fat_d_home_up.png"
+            box-text1="Big Fat D"
+            box-text2="Modular"
+            box-text3="Sequencer"
+            url-dest="/project/big_fat_d">
+            </project-box>
+
+            <project-box
+            class="tshirts"
+            box-image="shirts_home_up.png"
+            box-text1="A Few"
+            box-text2="T-Shirt"
+            box-text3="Designs"
+            url-dest="/project/tshirts">
+            </project-box>
+
+            <project-box
+            class="arduino"
+            box-image="arduino_home_up.png"
+            box-text1="Another"
+            box-text2="Sequencer"
+            box-text3="Project"
+            url-dest="/project/tshirts">
+            </project-box>
+
+            <project-box
+            class="vector"
+            box-image="vector_home_up.png"
+            box-text1="Vector"
+            box-text2="Films"
+            box-text3="Logo/Web"
+            url-dest="/project/vector">
+            </project-box>
+
+            <project-box
+            class="ssr"
+            box-image="ssr_home_up.png"
+            box-text1="SSR Parts"
+            box-text2="Web"
+            box-text3="Custom CMS"
+            url-dest="/project/ssr">
+            </project-box>
+
+            <project-box
+            class="logos"
+            box-image="logos_home_up.png"
+            box-text1="Assorted"
+            box-text2="Logo"
+            box-text3="Designs"
+            url-dest="/project/logos">
+            </project-box>
+
+            <project-box
+            class="spectre_dev"
+            box-image="spectre_dev_home_up.png"
+            box-text1="Spectre App"
+            box-text2="Development"
+            box-text3="Overview"
+            url-dest="/project/spectre_dev">
+            </project-box>
+
+            <project-box
+            class="audio"
+            box-image="audio_home_up.png"
+            box-text1="Audio"
+            box-text2="Production"
+            box-text3="Sound Design"
+            url-dest="/project/audio">
+            </project-box>
+
+            <project-box
+            class="openframeworks"
+            box-image="openframeworks_home_up.png"
+            box-text1="Open"
+            box-text2="Frameworks"
+            box-text3="Development"
+            url-dest="/project/openframeworks">
+            </project-box>
+
+        </div>
+
+    </template>
+
+    <script>
+
+    Polymer({
+
+        is: "navigation-boxes"
+
+    });
+
+    </script>
+
+</dom-module>

@@ -1,0 +1,52 @@
+<template>
+<project-display>
+
+<div class="project_image">
+<img src="/images/big_fat_d/big_fat_d_large.png" />
+</div>
+
+<div class="layout horizontal project_title" style="background-color: #e1f3be;">
+    BIG FAT D MODULAR SEQUENCER
+</div>
+
+<div class="project_links">
+</div>
+
+<div class="layout horizontal wrap project_desc">
+
+<p>
+The <span style="font-weight: bold;  color: #fca112;">Big Fat D</span> is a sequencer built with the very popular Arduino (Mega 2560). For those unaware, Arduino is an open source development platform that you can build all types of electronics with. It comes with it’s own IDE which uses Wiring (basically C++) as the programming language.
+</p>
+
+<p>
+The inspiration for the project was to create a sequencer to interface with my eurorack modular synthesizer. At the start of the project, I was a complete novice when it came to electronics and had never used a soldering iron.  The Big Fat D had somewhere around 400 solder points, so I got pretty good with my Weller soldering iron.
+</p>
+
+<p>
+The sequencer has three different operation modes. 32 step, dual 16 step, or quad 8 step. When either dual 16 or quad 8 step mode is enabled, each sequencer acts on it’s own. The sequencer features reset, pendulum mode, an octave range switch and a master reset button for all sequences.
+</p>
+
+<p>
+The Big Fat D uses DAC’s (digital to analog converters), Shift Registers and Multiplexers to perform various functions in the circuit. The DAC is used to create a smooth voltage for pitch, while the shift registers and multiplexers are used to minimize the number of pins used on the arduino for lighting led’s and reading potentiometer positions.
+</p>
+
+<p>
+I had the front panel, which I designed, custom milled out of aluminum and used an off the shelf enclosure to house the circuit and wiring.
+</p>
+
+<p>
+Overall, I thoroughly enjoyed this project. It was my first electronics project and much was learned about building circuits and interfacing with ic's. I foresee many more Arduino based experiments and creations in my future.
+</p>
+
+<p>
+The code and a list of ic’s is hosted on github for anyone interested in building their own or simply learning from my code. There isn’t a schematic for the project currently. Drop me a line if you have any questions. about the project.
+</p>
+
+<p>
+Big Fat D on <a href="https://github.com/section14/big_fat_d">GitHub</a>
+</p>
+
+</div>
+
+</project-display>
+</template>

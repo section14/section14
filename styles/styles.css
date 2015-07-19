@@ -1,6 +1,8 @@
 body {
   background-color: #fbfff5;
   font-family: 'Roboto', Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
   color: #333;
 }
 
@@ -8,10 +10,26 @@ a {
     text-decoration: none;
 }
 
+.project_image img {
+    width: 652px;
+    max-width: 100%;
+}
+
 .home_boxes {
     max-width: 980px;
 }
 
-.spectre {
-    --box-background-color: #ff0000;
+.project_title {
+    float: left;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 16px 10px 16px 10px;
+}
+
+.project_desc {
+    float: left;
+    max-width: 672px;
+    padding: 0px 10px 0px 10px;
+    clear: both;
 }

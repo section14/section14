@@ -21,22 +21,8 @@
     <!-- polymer elements -->
     <link rel="import" href="elements.html">
 
-    <!-- my elements -->
-    <link rel="import" href="elements/project-box.html">
-    <link rel="import" href="elements/content-loader.html">
-
     <!-- router -->
     <link rel="import" href="/general/routing.html">
-
-    <style is="custom-style">
-
-    .spectre {
-        --box-background-color: #2d4643;
-        --text-color-1: #1fc4ff;
-        --text-color-2: #1fffff;
-    }
-
-    </style>
 
   </head>
 
@@ -46,18 +32,6 @@
     <template is="dom-bind" id="app">
 
         <content-loader file-path="{{pageContent}}"></content-loader>
-
-        <div class="layout horizontal wrap home_boxes">
-
-        <project-box
-        class="spectre"
-        box-image="spectre_home_up.png"
-        box-text1="This is box text 1"
-        box-text2="This is box text 2"
-        url-dest="/project/spectre">
-        </project-box>
-
-        </div>
 
     </template>
 
