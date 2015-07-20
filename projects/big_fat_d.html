@@ -1,21 +1,62 @@
 <template>
-<project-display>
 
-<div class="project_image">
+<style>
+ a {
+   color: #274f06;
+ }
+
+ .project_bar {
+   background-color: #274f06;
+ }
+
+ .project_bar_text {
+     display: flex;
+ }
+
+ .project_title {
+   background-color: #274f06;
+ }
+
+ .project_links {
+     background-color: #ccc;
+     color: #000000;
+ }
+
+ .project_links a {
+   color: #274f06;
+ }
+
+ .project_links a:hover {
+   color: #fca112;
+ }
+</style>
+
+<!--<div class="project_image">
 <img src="/images/big_fat_d/big_fat_d_large.png" />
+</div>-->
+
+<div class="project_bar">
+
+    <div class="layout vertical center">
+
+        <div class="project_title">
+            <span style="color:#8aba2a;">BIG FAT D</span>&nbsp;<span style="color:#ffffff">MODULAR SEQUENCER<span>
+        </div>
+
+        <div class="project_links">
+            Big Fat D is built with: <a href="http://www.arduino.cc/">Arduino</a>
+        </div>
+
+    </div>
+
 </div>
 
-<div class="layout horizontal project_title" style="background-color: #e1f3be;">
-    BIG FAT D MODULAR SEQUENCER
-</div>
+<div class="layout vertical wrap center">
 
-<div class="project_links">
-</div>
-
-<div class="layout horizontal wrap project_desc">
+<div class="project_desc">
 
 <p>
-The <span style="font-weight: bold;  color: #fca112;">Big Fat D</span> is a sequencer built with the very popular Arduino (Mega 2560). For those unaware, Arduino is an open source development platform that you can build all types of electronics with. It comes with it’s own IDE which uses Wiring (basically C++) as the programming language.
+The <span style="font-weight: bold; color: #fca112;">Big Fat D</span> is a sequencer built with the very popular Arduino (Mega 2560). For those unaware, Arduino is an open source development platform that you can build all types of electronics with. It comes with it’s own IDE which uses Wiring (basically C++) as the programming language.
 </p>
 
 <p>
@@ -43,10 +84,11 @@ The code and a list of ic’s is hosted on github for anyone interested in build
 </p>
 
 <p>
-Big Fat D on <a href="https://github.com/section14/big_fat_d">GitHub</a>
+Big Fat D source code available on <a href="https://github.com/section14/big_fat_d">GitHub</a>
 </p>
 
 </div>
 
-</project-display>
+</div>
+
 </template>
