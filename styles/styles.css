@@ -28,21 +28,22 @@ a {
 
 .project_bar {
   width: 100%;
-  height: 220px;
+  min-height: 220px;
 }
 
 .project_title {
     width: 652px;
     max-width: 100%;
-    font-size: 1.5em;
+    font-size: 2.65em;
     font-weight: bold;
+    line-height: normal;
     padding: 16px 10px 16px 10px;
 }
 
 .project_links {
     width: 652px;
     max-width: 100%;
-    padding: 16px 10px 16px 10px;
+    padding: 0px 10px 16px 10px;
 }
 
 .project_desc {
