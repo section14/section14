@@ -1,0 +1,104 @@
+<template>
+
+<style>
+ a {
+   color: #2e1706;
+ }
+
+ a:hover {
+   color: #fc7d23;
+ }
+
+ .project_bar {
+   background-color: #2e1706;
+ }
+
+.project_head {
+}
+
+ .project_title {
+
+ }
+
+ .project_links {
+     color: #884313;
+ }
+
+ .project_links a {
+   color: #9ead0d;
+ }
+
+ .project_links a:hover {
+   color: #bdff39;
+ }
+
+ .footer_link_box {
+     background-color: #e5e9e0;
+     padding: 12px;
+     margin: 6px 0px 20px 0px;
+ }
+</style>
+
+<!--<div class="project_image">
+<img src="/images/big_fat_d/big_fat_d_large.png" />
+</div>-->
+
+<div class="project_bar">
+
+    <div class="layout vertical center project_head">
+
+        <div class="back_button">
+            <back-button></back-button>
+        </div>
+
+        <div class="project_title">
+            <span style="color:#fc7d23;">SSP PARTS</span>&nbsp;<br /><span style="color:#ffffff">WEBSITE / CMS<span>
+        </div>
+
+        <div class="project_links">
+            Custom E-commerce CMS built with Kohana PHP
+        </div>
+
+    </div>
+
+</div>
+
+<div class="layout vertical wrap center">
+
+<div class="project_desc">
+
+    <p>
+    The SSR-PARTS website features a shopping cart &amp; content management system that I built from the ground up. When I started on this site, I was unhappy with most of the pre-configured systems for e-commerce sites. Mostly, I felt they were very bloated with a lot of uncommented, difficult to read code. I had reverse engineered one or two of them at this point and decided I would build my own, which could be used for other projects in the future.
+    </p>
+
+    <p>
+    The first step was to set out and find a good PHP framework to use. At this point, I had been writing from scratch or using stripped down versions of other e-commerce sites. After a lot of comparisons I decided on Kohana 2.3.4 as my framework. Originally, I was going to use Code Ignitor, but further research revealed that Kohana was a fork of Code Ignitor with the bloat stripped away.
+    </p>
+
+    <img src="/images/ssr/ssr_web_imac.png" />
+
+    <p>
+    This application was built with three main goals: Scalability, security and clean, readable code. To address these items in reverse, every programmer loathes when they have to comb through code with almost no comments and endless nested if statements. I made sure to name variables and methods sensibly, indent code in a visually pleasing way, and add comments in a way that other programmers could understand.
+    </p>
+
+    <p>
+    Since all sites, no matter the size, are targets for attack, security was an obvious concern. Luckily, Kohana has a lot of that covered in their framework design. User authorization, ORM (object relational mapping) instead of SQL statements, and protection against cross site scripting built in. I designed the application to leverage these features. Url’s are completely cleaned and any data received via url is stripped for extra precaution.
+    </p>
+
+    <img src="/images/ssr/ssr_code.png" />
+
+    <p>
+    All core elements of this application are completely modular and built to be inherited easily into new classes for maximum scalability. I used a strict MVC approach and employed AJAX for much of the non-critical data to increase speed and user experience. In comparison to other popular shopping carts, the code base is much smaller and more compact. Granted, the available features are less than some of the available systems, but features are quite easy to add or modify.
+    </p>
+
+
+
+<div class="footer_link_box">
+Website Link: <a href="http://www.ssr-parts.com">ssr-parts.com</a>
+</div>
+
+</div>
+
+</div>
+
+</template>

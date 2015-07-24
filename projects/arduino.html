@@ -1,0 +1,132 @@
+<template>
+
+<style>
+ a {
+   color: #b82c06;
+ }
+
+ a:hover {
+   color: #fa3c08;
+ }
+
+ .project_bar {
+   background-color: #280901;
+ }
+
+.project_head {
+    background-image: url("/images/seq_2/arduino_header.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+ .project_title {
+
+ }
+
+ .project_links {
+     color: #992203;
+ }
+
+ .project_links a {
+   color: #b82c06;
+ }
+
+ .project_links a:hover {
+   color: #fa3c08;
+ }
+
+ .footer_link_box {
+     background-color: #e5e9e0;
+     padding: 12px;
+     margin: 6px 0px 20px 0px;
+ }
+</style>
+
+<!--<div class="project_image">
+<img src="/images/big_fat_d/big_fat_d_large.png" />
+</div>-->
+
+<div class="project_bar">
+
+    <div class="layout vertical center project_head">
+
+        <div class="back_button">
+            <back-button></back-button>
+        </div>
+
+        <div class="project_title">
+            <span style="color:#fa3c08">ANOTHER</span>&nbsp;<br /><span style="color:#ffffff">SEQUENCER PROJECT<span>
+        </div>
+
+        <div class="project_links">
+            This project is built with: <a href="http://www.arduino.cc/">Arduino</a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="layout vertical wrap center">
+
+<div class="project_desc">
+
+    <p>
+    Yes, I really like making sequencers. This, yet to be named project will be my wildest creation yet. Unlike the Big Fat D, which was mostly straight forward for a step sequencer, this will have quite a few modulation options. Much of the code from the Big Fat D was used as a base for this project.
+    </p>
+
+    <p>
+
+        The list of features for the project are as follows:
+
+        <ul>
+            <li>
+                16 Steps that can be adjusted down to 2 steps
+            </li>
+            <li>
+                Sequence length is voltage controlled up or down
+            </li>
+            <li>
+                Forward and pendulum playing mode
+            </li>
+            <li>
+                Sequence direction can be voltage controlled
+            </li>
+            <li>
+                Nested looping mode
+            </li>
+            <li>
+                Nested loop length can be adjusted via voltage
+            </li>
+            <li>
+                Sample &amp; Hold (maybe)
+            </li>
+        </ul>
+    </p>
+
+    <img src="/images/seq_2/seq_2_pics_01.png" />
+
+    <p>
+    I should probably explain the nested looping mode feature. It’s something I’m borrowing from fellow synth diy’er Shawn Rudiman. Essentially, the nested loop mode is exactly what the name suggests. As opposed to a normal sequencer that loops 1-16, the nested loop (assuming a 4 step long loop) mode operates like this: 1234, 2345, 3456, etc. The length of the loop will have an adjustable range from 2-15 steps.
+    </p>
+
+    <p>
+    I’m still debating what sort of case I will have. I’m considering having an acrylic case made as it’s a lot less expensive than anodized aluminum. I’m also debating having a PCB made instead of wiring it all like I did with the Big Fat D. There will be less components and soldering points, but it still may be worth it to have a pcb made.
+    </p>
+
+    <p>
+    This is an open source project and the code will be published for use in non-commercial projects.
+    </p>
+
+    <img src="/images/seq_2/seq_2_pics_02.png" />
+
+
+<div class="footer_link_box">
+Source code will be available on <a href="https://github.com/section14/">My GitHub</a>
+</div>
+
+</div>
+
+</div>
+
+</template>

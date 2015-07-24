@@ -1,5 +1,11 @@
 <dom-module id="project-box">
 
+    <!--
+
+    todo: Get the animations to fade in and out
+
+    -->
+
     <style>
 
     :host {
@@ -8,7 +14,7 @@
         height: 244px;
         min-width: 244px;
         min-height: 244px;
-        margin: 12px 0px 12px 0px;
+        margin: 0px 0px 0px 0px;
         background-color: var(--box-background-color, gray);
     }
 
@@ -46,6 +52,7 @@
         position:relative;
         top: 0;
         z-index: 2;
+        font-size: 1.25em;
     }
 
     </style>
@@ -187,12 +194,21 @@
         },
 
         enterHover: function() {
+            this.$.image.style.display = "none";
+            this.$.text_container.style.display = this.textDisplayStyle;
+
+            /*
             this.playAnimation("imageFadeOut", "imageFadeOut");
             this.playAnimation("textFadeIn", "textFadeIn");
             this.$.text_container.style.display = this.textDisplayStyle;
+            */
         },
 
         leaveHover: function() {
+            this.$.text_container.style.display = "none";
+            this.$.image.style.display = this.imageDisplayStyle;
+
+            /*
             if (this.imageHidden === true)
             {
                 this.playAnimation("imageFadeIn", "imageFadeIn");
@@ -204,6 +220,7 @@
             }
             this.playAnimation("textFadeOut", "textFadeOut");
             this.$.text_container.style.display = "none";
+            */
         },
 
         handleTap: function() {

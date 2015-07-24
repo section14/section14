@@ -19,6 +19,8 @@ handlers:
   static_dir: elements
 - url: /images
   static_dir: images
+- url: /pdf
+  static_dir: pdf
 - url: /elements.html
   static_files: elements.html
   upload: elements.html

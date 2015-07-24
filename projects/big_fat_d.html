@@ -5,6 +5,10 @@
    color: #252903;
  }
 
+ a:hover {
+   color: #3c4305;
+ }
+
  .project_bar {
    background-color: #252903;
  }
@@ -34,6 +38,8 @@
 
  .footer_link_box {
      background-color: #e5e9e0;
+     padding: 12px;
+     margin: 6px 0px 20px 0px;
  }
 </style>
 
@@ -45,7 +51,11 @@
 
     <div class="layout vertical center project_head">
 
-        <div class="project_title" style="margin-top: 100px;">
+        <div class="back_button">
+            <back-button></back-button>
+        </div>
+
+        <div class="project_title">
             <span style="color:#fca112;">BIG FAT D</span>&nbsp;<br /><span style="color:#ffffff">MODULAR SEQUENCER<span>
         </div>
 
@@ -73,6 +83,8 @@ The inspiration for the project was to create a sequencer to interface with my e
 The sequencer has three different operation modes. 32 step, dual 16 step, or quad 8 step. When either dual 16 or quad 8 step mode is enabled, each sequencer acts on it’s own. The sequencer features reset, pendulum mode, an octave range switch and a master reset button for all sequences.
 </p>
 
+<img src="/images/big_fat_d/big_fat_d_04.png" />
+
 <p>
 The Big Fat D uses DAC’s (digital to analog converters), Shift Registers and Multiplexers to perform various functions in the circuit. The DAC is used to create a smooth voltage for pitch, while the shift registers and multiplexers are used to minimize the number of pins used on the arduino for lighting led’s and reading potentiometer positions.
 </p>
@@ -88,6 +100,8 @@ Overall, I thoroughly enjoyed this project. It was my first electronics project 
 <p>
 The code and a list of ic’s is hosted on github for anyone interested in building their own or simply learning from my code. There isn’t a schematic for the project currently. Drop me a line if you have any questions. about the project.
 </p>
+
+<img src="/images/big_fat_d/big_fat_d_05.png" />
 
 <div class="footer_link_box">
 Big Fat D source code available on <a href="https://github.com/section14/big_fat_d">GitHub</a>

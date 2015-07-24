@@ -1,1 +1,144 @@
-Spectre midi sequencer.
+<template>
+
+<style>
+ a {
+   color: #0089d2;
+ }
+
+ a:hover {
+   color: #00a6ff;
+ }
+
+ .project_bar {
+   background-color: #000000;
+ }
+
+.project_head {
+    background-image: url("/images/spectre/spectre_header.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+ .project_title {
+
+ }
+
+ .project_links {
+     color: #ffffff;
+ }
+
+ .project_links a {
+   color: #0089d2;
+ }
+
+ .project_links a:hover {
+   color: #00a6ff;
+ }
+
+ .footer_link_box {
+     background-color: #e5e9e0;
+     padding: 12px;
+     margin: 6px 0px 20px 0px;
+ }
+
+.spectre_manual {
+    background-color: #00669c;
+    padding: 20px 0px 20px 0px;
+    margin: 12px 0px 22px 0px;
+}
+
+.small_screens {
+    margin: 10px 0px 10px 0px;
+    background-color: #e5e9e0;
+    padding: 12px;
+}
+
+ .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<!--<div class="project_image">
+<img src="/images/big_fat_d/big_fat_d_large.png" />
+</div>-->
+
+<div class="project_bar">
+
+    <div class="layout vertical center project_head">
+
+        <div class="back_button">
+            <back-button></back-button>
+        </div>
+
+        <div class="project_title">
+            <span style="color:#00a6ff;">SPECTRE MODULAR</span>&nbsp;<br /><span style="color:#ffffff">MIDI SEQUENCER<span>
+        </div>
+
+        <div class="project_links">
+            Spectre is a midi sequencer for the Apple iPad: <a href="https://itunes.apple.com/app/spectre-modular-midi-sequencer/id661530335?mt=8">Available on the App Store</a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="layout vertical wrap center">
+
+<div class="project_desc">
+
+<p>
+    The Spectre Modular Midi Sequencer is an iPad app based on analog modular sequencers. Using virtual patch
+    cables and the array of modules featured in this app, you can experience what modular sequencing is all
+    about.
+</p>
+
+<div class="video-container">
+    <iframe src="//www.youtube.com/embed/Z3fLie9H1Ow" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>
+    - 4x 8 step sequencers, 2x clock dividers, 2x sequential switches, 2x logic modules and
+    2 independent midi outputs with optional sample and hold feature.
+</p>
+
+<p>
+    - Each ouput jack can be routed to multiple inputs (aka stackable). Sequencers are adjustable from
+    2 to 8 steps and can be combined for interesting patterns.
+</p>
+
+<p>
+    - Note, octave, velocity and gate length are available for each step. CV (pitch) and gates (or triggers) can
+    be combined independently to create midi notes.
+</p>
+
+<div class="small_screens">
+<img src="/images/spectre/spectre_screens.png" />
+</div>
+
+<p style="font-weight: bold;">
+    Download the manual for a more in depth look at the functionality of the Spectre Midi Sequencer's
+    different modules, and some patch ideas.
+</p>
+
+<div class=" layout vertical center spectre_manual">
+    <a href="/pdf/Spectre_Manual.pdf"><img src="/images/spectre/spectre_manual.png" /></a>
+</div>
+
+</div>
+
+</div>
+
+</template>

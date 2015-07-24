@@ -1,0 +1,146 @@
+<template>
+
+<style>
+ a {
+   color: #252903;
+ }
+
+ a:hover {
+   color: #3c4305;
+ }
+
+ .project_bar {
+   background-color: #241a05;
+ }
+
+.project_head {
+    background-image: url("/images/spectre/spectre_dev_header.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+ .project_title {
+
+ }
+
+ .project_links {
+     color: #62450d;
+ }
+
+ .project_links a {
+   color: #ba8319;
+ }
+
+ .project_links a:hover {
+   color: #fcb923;
+ }
+
+ .footer_link_box {
+     background-color: #e5e9e0;
+     padding: 12px;
+     margin: 6px 0px 20px 0px;
+ }
+
+ .top_link_box {
+     background-color: #e5e9e0;
+     padding: 12px;
+     margin: 20px 0px 20px 0px;
+ }
+</style>
+
+<!--<div class="project_image">
+<img src="/images/big_fat_d/big_fat_d_large.png" />
+</div>-->
+
+<div class="project_bar">
+
+    <div class="layout vertical center project_head">
+
+        <div class="back_button">
+            <back-button></back-button>
+        </div>
+
+        <div class="project_title">
+            <span style="color:#fcb923;">SPECTRE APP</span>&nbsp;<br /><span style="color:#ffffff">DEVELOPMENT<span>
+        </div>
+
+        <div class="project_links">
+            Development overview of: <a href="https://itunes.apple.com/app/spectre-modular-midi-sequencer/id661530335?mt=8">Spectre Midi Sequencer</a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="layout vertical wrap center">
+
+<div class="project_desc">
+
+    <div class="top_link_box">
+    This page explains the development process of the Spectre Midi Sequencer. For the product page, please <a href="/#!/project/spectre">click here</a>.
+    </div>
+
+    <h1>An Idea</h1>
+    <p>
+    My decision to create the Spectre Midi Sequencer was a two part decision. First of all, I wanted to learn Objective-C and create something for my newly purchased iPad. Secondly, I wanted to provide an avenue for electronic musicians to experiment with modular sequencing at a fraction of the cost of buying the analog modules.
+    </p>
+
+    <p>
+    I’ve been building up my own eurorack modular synthesizer for a few years, and was completely amazed at the non-linear way modular sequencing systems worked. You could use a handful of modules to create these amazing, evolving sequences with relative ease. When I first got into modulars, I didn’t think you could do anything with 8 steps. Boy was I wrong. So, I wanted to give people a way to try this out and maybe encourage them to start their own analog modular.
+    </p>
+
+    <h1>Tech Specs</h1>
+    <p>
+    Okay, on to the technical side of this article. Under the hood, there is a lot going in this application. Unlike a fixed sequencer, whose steps are predefined, this system is completely open and modular. Thus, each input must always be listening for a signal and be able to process it. In most situations, it will create it’s own signal that can be processed by another module...ad infinitum.
+    </p>
+
+    <p>
+    The application has three core classes. One, like many other iOS applications, is the <span class="spectre_dev_alt_text">MainViewController</span>. Second, is the <span class="spectre_dev_alt_text">MainCanvasView</span> and last is the <span class="spectre_dev_alt_text">CablesView</span>. The <span class="spectre_dev_alt_text">MainCanvasView</span> is where all of the module classes are created and where you would access any of the module properties or call methods that belong to said module. They are also drawn into this UIView.
+    </p>
+
+    <img src="images/spectre/spectre_dev_02.png" />
+
+    <p>
+    In Spectre, aside from handling basic start/stop and load/save functions, the <span class="spectre_dev_alt_text">MainViewController</span> acts a hub for the main canvas and cable classes. The <span class="spectre_dev_alt_text">MainViewController</span> is a delegate for both classes. It receives messages from each class and distributes it to the correct place on the corresponding class to complete a task.
+    </p>
+
+    <p>
+    The <span class="spectre_dev_alt_text">CablesView</span> is an invisible layer drawn on top of the <span class="spectre_dev_alt_text">MainCanvasView</span> when the “Edit Cables” button is selected. In this class, connections between inputs and outputs are made and virtual patch cables to represent these connections are drawn. In many ways, this class is the heart of the application as it has to manage all of the connections.
+    </p>
+
+    <img src="/images/spectre/spectre_dev_03.png" />
+
+    <p>
+    Most connections work in the same way throughout the application. Each output is represented by a NSMutableArray in the <span class="spectre_dev_alt_text">CablesView</span> that will index an object in the array for each module it is connected to. That array is checked each time a module needs to.
+    </p>
+
+
+    <h1>Example Patch</h1>
+    <p>
+    Tempo into a clock divider’s #3 output into the input of a sequential switch. The tempo module is the starting point for any patch. It provides 1/16 note signals based on the selected tempo. Every module has a clockInput() method which drives the module and what is called when a virtual connection is made to it’s input. In this case, it’s a clock divider. This connection starts the process of clock division. Which, is basically simple loops that reset themselves when they reach their determined length. In this case it’s three steps.
+    </p>
+
+    <img src="/images/spectre/spectre_dev_04.png" />
+
+    <p>
+    When it reaches three steps, it calls a delegate method (in the <span class="spectre_dev_alt_text">MainViewController</span>) which forwards that message on to correct method in the <span class="spectre_dev_alt_text">CablesView</span>. This method simply iterates over the NSMutableArray for that particular clock division to check for any objects (ie. connections). For each indexed object, a call is made to a corresponding method for that input. In this case, it’s the input of a sequential switch. This step completes the task and starts the same process over with the outputs of the sequential switch.
+    </p>
+
+    <div class="spectre_dev_image">
+    <img src="/images/spectre/spectre_dev_05.png" />
+    </div>
+
+    <p>
+    Shout out to <a href="http://www.goodliffe.net">Pete Goodliffe</a> for his excellent <a href="https://github.com/petegoodliffe/PGMidi">Midi Library</a> which was used for this project.
+    </p>
+
+<div class="footer_link_box">
+<a href="https://itunes.apple.com/app/spectre-modular-midi-sequencer/id661530335?mt=8">Available on the App Store</a>
+</div>
+
+</div>
+
+</div>
+
+</template>
