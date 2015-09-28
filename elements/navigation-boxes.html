@@ -1,6 +1,10 @@
 <dom-module id="navigation-boxes">
 
     <style>
+        .home_boxes {
+            width: 100%;
+            max-width: 980px;
+        }
 
         .spectre {
             --box-background-color: #2d4643;
@@ -62,18 +66,30 @@
             --text-color-2: #3e0e25;
         }
 
+        .about_box {
+            --box-background-color: #232423;
+            --text-color-1: #fbfff5;
+            --text-color-2: #ffad43;
+        }
+
+        .contact_box {
+            --box-background-color: #e3e7de;
+            --text-color-1: #232423;
+            --text-color-2: #36b0cf;
+        }
+
     </style>
 
     <template>
 
         <!-- page header -->
-        <div class="layout vertical wrap center">
+        <div id="header_housing" class="layout vertical wrap center">
             <div class="header_area">
                 <div class="header_image">
                     <img src="/images/logo.png" />
                 </div>
 
-                <div class="header_links_container">
+                <div id="header_links_large" class="header_links_container">
                     <div class="layout self-stretch header_links">
                         <a href="/about">About</a> | <a href="/contact">Contact</a>
                     </div>
@@ -81,9 +97,17 @@
             </div>
         </div>
 
+        <!--
+
+        Ok retard, here's what you need to to. You need to write some javascript (hopefully in Polymer) to detect screen size.
+        Then, you need to listen for the screen size, and swap out the css class based on size. Check for multiples of the boxes,
+        and make the max-width whatever each multiple is. Or something.
+
+        -->
+
         <!-- boxes all boxed up -->
-        <div class="layout vertical center">
-          <div class="layout horizonal wrap home_boxes">
+        <div id="box_housing" class="layout vertical center">
+          <div class="layout horizonal wrap center">
 
               <project-box
               class="spectre"
@@ -175,6 +199,22 @@
               url-dest="/project/openframeworks">
               </project-box>
 
+              <section-box
+              id="about_us_box"
+              class="about_box"
+              box-text1="About"
+              box-text2="Us"
+              url-dest="/about">
+              </section-box>
+
+              <section-box
+              id="contact_us_box"
+              class="contact_box"
+              box-text1="Contact"
+              box-text2="Us"
+              url-dest="/contact">
+              </section-box>
+
           </div>
         </div>
 
@@ -184,7 +224,63 @@
 
     Polymer({
 
-        is: "navigation-boxes"
+        is: "navigation-boxes",
+
+        listeners: {
+            "resize" : "screenResized"
+        },
+
+        ready: function() {
+            this.screenWidth = screen.width;
+            this.calculateWidth();
+            //window.addEventListener("resize", this.screenResized());
+        },
+
+        screenResized: function(e) {
+            console.log("size changed");
+        },
+
+        calculateWidth: function() {
+            //project box width
+            var boxWidth = 244;
+            var boxesWrapper = 980;
+
+            //default
+            this.showLarge();
+
+            if (this.screenWidth < (boxWidth * 4) && this.screenWidth > (boxWidth * 3))
+            {
+                this.showLarge();
+                boxesWrapper = boxWidth * 3;
+            }
+            else if (this.screenWidth < (boxWidth * 3) && this.screenWidth > (boxWidth * 2))
+            {
+                this.showLarge();
+                boxesWrapper = boxWidth * 2;
+            }
+            else if (this.screenWidth < (boxWidth * 2) && this.screenWidth > (boxWidth * 1))
+            {
+                this.showSmall();
+                boxesWrapper = boxWidth * 1;
+            }
+
+            console.log("boxes wrapper: " + boxesWrapper);
+
+            this.$.box_housing.style.width = boxesWrapper + "px";
+            this.$.header_housing.style.width = boxesWrapper + "px";
+        },
+
+        showLarge: function() {
+            this.$.header_links_large.hidden = false;
+            this.$.about_us_box.hidden = true;
+            this.$.contact_us_box.hidden = true;
+        },
+
+        showSmall: function() {
+            this.$.header_links_large.hidden = true;
+            this.$.about_us_box.hidden = false;
+            this.$.contact_us_box.hidden = false;
+        }
 
     });
 

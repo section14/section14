@@ -165,7 +165,10 @@
         },
 
         setImagePath: function() {
-            this.imagePath = "/images/" + this.boxImage;
+            if (this.boxImage != "none")
+            {
+                this.imagePath = "/images/" + this.boxImage;
+            }    
         },
 
         handleAnimationComplete: function (event, animHandler) {

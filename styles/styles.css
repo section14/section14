@@ -39,7 +39,6 @@ HOME / GENERAL STYLES -----------------------------------------------
 
 .header_image {
     float: left;
-    width: 50%;
 }
 
 .header_links_container {
@@ -53,10 +52,6 @@ HOME / GENERAL STYLES -----------------------------------------------
     right: 0;
     padding: 0px 20px 0px 0px;
     text-align: right;
-}
-
-.home_boxes {
-    max-width: 980px;
 }
 
 .back_button {
