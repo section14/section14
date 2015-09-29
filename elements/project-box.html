@@ -1,11 +1,5 @@
 <dom-module id="project-box">
 
-    <!--
-
-    todo: Get the animations to fade in and out
-
-    -->
-
     <style>
 
     :host {
@@ -91,36 +85,7 @@
 
         is: "project-box",
 
-        behaviors: [
-            Polymer.NeonAnimationRunnerBehavior,
-        ],
-
         properties: {
-
-            animationConfig: {
-                value: function() {
-                    return {
-                        "imageFadeOut": {
-                            name: "fade-out-animation",
-                            node: this.$.image
-                        },
-                        "imageFadeIn": {
-                            name: "fade-in-animation",
-                            node: this.$.image
-                        },
-                        "textFadeOut": {
-                            name: "fade-out-animation",
-                            node: this.$.text_container
-                        },
-                        "textFadeIn": {
-                            name: "fade-in-animation",
-                            node: this.$.text_container
-                        },
-
-                    }
-                }
-
-            },
 
             boxImage: {
                 type: String
@@ -144,11 +109,6 @@
 
         },
 
-        listeners: {
-          // this event is fired when the animation finishes
-          "neon-animation-finish": "handleAnimationComplete"
-        },
-
         ready: function() {
             this.setImagePath();
 
@@ -168,62 +128,17 @@
             if (this.boxImage != "none")
             {
                 this.imagePath = "/images/" + this.boxImage;
-            }    
-        },
-
-        handleAnimationComplete: function (event, animHandler) {
-            //function to call proper animation handler function
-            switch (animHandler) {
-
-                case "imageFadeOut":
-                    this.imageFadeOutComplete();
-                    break;
-
-                case "imageFadeIn":
-                    this.imageFadeInComplete();
-                    break;
-
-                default: null
-
             }
-        },
-
-        imageFadeOutComplete: function() {
-            this.imageHidden = true;
-        },
-
-        imageFadeInComplete: function() {
-            this.imageHidden = false;
         },
 
         enterHover: function() {
             this.$.image.style.display = "none";
             this.$.text_container.style.display = this.textDisplayStyle;
-
-            /*
-            this.playAnimation("imageFadeOut", "imageFadeOut");
-            this.playAnimation("textFadeIn", "textFadeIn");
-            this.$.text_container.style.display = this.textDisplayStyle;
-            */
         },
 
         leaveHover: function() {
             this.$.text_container.style.display = "none";
             this.$.image.style.display = this.imageDisplayStyle;
-
-            /*
-            if (this.imageHidden === true)
-            {
-                this.playAnimation("imageFadeIn", "imageFadeIn");
-            }
-            else
-            {
-                this.cancelAnimation();
-                this.$.image.style.display = this.imageDisplayStyle;
-            }
-            this.playAnimation("textFadeOut", "textFadeOut");
-            this.$.text_container.style.display = "none";
-            */
         },
 
         handleTap: function() {
