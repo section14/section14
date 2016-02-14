@@ -97,14 +97,6 @@
             </div>
         </div>
 
-        <!--
-
-        Ok retard, here's what you need to to. You need to write some javascript (hopefully in Polymer) to detect screen size.
-        Then, you need to listen for the screen size, and swap out the css class based on size. Check for multiples of the boxes,
-        and make the max-width whatever each multiple is. Or something.
-
-        -->
-
         <!-- boxes all boxed up -->
         <div id="box_housing" class="layout vertical center">
           <div class="layout horizonal wrap center">
@@ -237,7 +229,7 @@
         },
 
         screenResized: function(e) {
-            console.log("size changed");
+
         },
 
         calculateWidth: function() {
@@ -263,8 +255,6 @@
                 this.showSmall();
                 boxesWrapper = boxWidth * 1;
             }
-
-            console.log("boxes wrapper: " + boxesWrapper);
 
             this.$.box_housing.style.width = boxesWrapper + "px";
             this.$.header_housing.style.width = boxesWrapper + "px";

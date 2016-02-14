@@ -26,6 +26,18 @@ a:hover {
 HOME / GENERAL STYLES -----------------------------------------------
 */
 
+.loading {
+    background-color: #fbfff5;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
 .header_area {
     float: left;
     width: 100%;

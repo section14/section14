@@ -19,16 +19,20 @@
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
     <!-- polymer elements -->
-    <link rel="import" href="elements.html">
+    <link rel="import" id="bundle" href="elements.html">
 
     <!-- router -->
     <link rel="import" href="/general/routing.html">
 
   </head>
 
-  <body class="fullbleed">
+  <body class="loading fullbleed">
 
-    <span id="browser-sync-binding"></span>
+      <div id="splash">
+          <img src="/images/spinner.gif" class="centered" />
+      </div>
+
+    <!--<span id="browser-sync-binding"></span>-->
     <template is="dom-bind" id="app">
 
         <!-- content area -->

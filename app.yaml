@@ -24,6 +24,9 @@ handlers:
 - url: /elements.html
   static_files: elements.html
   upload: elements.html
+- url: /imports.html
+  static_files: imports.html
+  upload: imports.html
 - url: /
   static_files: index.html
   upload: index.html
